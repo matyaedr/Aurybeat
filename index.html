@@ -6,6 +6,9 @@
   <meta name="description" content="AURY Serum Bank — coming soon.">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <title>AURY Serum Bank — Upcoming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
@@ -167,21 +170,35 @@
     }
 
     h1 {
+      position: relative;
+      isolation: isolate;
       margin: 0;
       font-size: clamp(54px, 11vw, 112px);
+      font-family: 'Bebas Neue', Impact, sans-serif;
       font-weight: 400;
       line-height: .95;
-      letter-spacing: .015em;
+      letter-spacing: .04em;
       text-transform: uppercase;
-      text-shadow: 5px 5px 0 rgba(255, 255, 255, .7);
+      text-shadow: 3px 4px 0 rgba(220, 236, 255, .9), 0 0 18px rgba(6, 47, 105, .72);
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 27S4 20 4 11.5C4 7.6 7 5 10.4 5c2.2 0 4.3 1.2 5.6 3.1C17.3 6.2 19.4 5 21.6 5 25 5 28 7.6 28 11.5 28 20 16 27 16 27Z' fill='%23f05a87' stroke='%23062f69' stroke-width='1.5'/%3E%3C/svg%3E") 16 16, pointer;
       transition: transform .4s cubic-bezier(.2, .8, .2, 1), text-shadow .4s ease;
       animation: fade-in 1s ease-out .25s both;
     }
 
+    h1::before {
+      position: absolute;
+      z-index: -1;
+      inset: -18% -10%;
+      border-radius: 50%;
+      background: rgba(220, 236, 255, .58);
+      content: '';
+      filter: blur(22px);
+      transform: scaleX(.9);
+    }
+
     h1:hover {
       transform: none;
-      text-shadow: 0 0 8px rgba(255, 255, 255, .98), 0 0 22px rgba(255, 255, 255, .9), 0 0 42px rgba(8, 125, 204, .95), 0 0 72px rgba(8, 125, 204, .7), 5px 5px 0 rgba(255, 255, 255, .7);
+      text-shadow: 3px 4px 0 rgba(220, 236, 255, .95), 0 0 10px rgba(255, 255, 255, .98), 0 0 30px rgba(8, 125, 204, .95), 0 0 64px rgba(8, 125, 204, .7);
       filter: drop-shadow(0 0 10px rgba(8, 125, 204, .65));
     }
 
