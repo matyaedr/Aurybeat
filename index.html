@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="4aury4 — professional Mix & Master for music with its own aura.">
+  <title>4aury4 — Sound with aura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__brand">4aury4<span class="accent">.</span></div>
+    <div class="preloader__meter"><span></span></div>
+    <div class="preloader__readout"><span class="preloader__db">-∞</span> dB <span> / </span> <span data-i18n="common.booting">BOOTING AURA</span></div>
+  </div>
+  <div class="noise"></div>
+  <div class="cursor cursor--dot"></div>
+  <div class="cursor cursor--ring"></div>
+  <div class="aura-glow"></div>
+  <div class="page-shell">
+    <header class="site-header">
+      <a href="#top" class="wordmark magnetic js-logo" aria-label="4aury4 domů">4aury4<span class="accent">.</span></a>
+      <nav class="nav">
+        <a href="#sound" data-i18n="nav.sound">Soundcheck</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+      </nav>
+      <div class="language-switcher magnetic" role="group" aria-label="Language switcher">
+        <button type="button" data-lang="en" class="is-active">EN</button><span>/</span><button type="button" data-lang="cz">CZ</button>
+      </div>
+      <a href="https://www.instagram.com/4aury4/" class="header-cta magnetic" target="_blank" rel="noreferrer">DM / @4aury4 <span>↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero__grid"></div>
+        <div class="hero__content">
+          <div class="eyebrow reveal" data-i18n-html="hero.eyebrow">MIX / MASTER / AURA <span class="eyebrow__line"></span> 2024—25</div>
+          <h1 class="hero__title" aria-label="4aury4">
+            <span class="hero__title-line"><span>4</span><span>a</span><span>u</span></span>
+            <span class="hero__title-line hero__title-line--offset"><span>r</span><span>y</span><span>4</span><span class="accent">.</span></span>
+          </h1>
+          <p class="hero__copy reveal" data-i18n-html="hero.copy">Sound that defines your aura.<br><strong>Professional Mix & Master.</strong></p>
+          <a href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer" class="button button--primary magnetic reveal">
+            <span data-i18n="hero.cta">Upgrade your sound</span><i>↗</i>
+          </a>
+        </div>
+        <div class="hero__meta reveal">
+          <span>BRNO / CZ</span>
+          <span class="hero__scroll"><i></i> <span data-i18n="hero.scroll">SCROLL TO LISTEN</span></span>
+          <span>47°14' N / 16°36' E</span>
+        </div>
+        <div class="hero__side-note" data-i18n-html="hero.sideNote">MAKE IT HIT <span>✳</span> MAKE IT LAST</div>
+      </section>
+
+      <section class="manifesto section section--tight">
+        <div class="section-index" data-i18n="sections.philosophy">01 / PHILOSOPHY</div>
+        <div class="manifesto__body">
+          <p class="display-text split-text" data-i18n-html="philosophy.title">Every track has its <em>own universe.</em> We give it room to shine.</p>
+          <div class="manifesto__detail">
+            <span class="detail-line"></span>
+            <p data-i18n="philosophy.body">From the first transient to the final decibel. We mix emotion and master impact. No presets on autopilot. Just precision, taste and a vibe that stays with you.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sound" class="soundcheck section">
+        <div class="section-heading">
+          <div class="section-index" data-i18n="sections.sound">02 / SOUND LAB</div>
+          <div class="section-heading__aside" data-i18n-html="sound.comparison">A/B COMPARISON <span class="pulse-dot"></span></div>
+        </div>
+        <div class="sound-card sound-card--hardware minimal-telemetry">
+          <div class="hardware-corner hardware-corner--tl">PHASE ANALYTICS / 04</div>
+          <div class="hardware-corner hardware-corner--tr">FREQ_RESP: 20Hz—20kHz</div>
+          <div class="hardware-corner hardware-corner--bl">INPUT_STAGE / 32-BIT FLOAT</div>
+          <div class="hardware-corner hardware-corner--br">0dB FS / AURA BUS</div>
+          <div class="hardware-phase" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span>PHASE<br>+1.0</span></div>
+          <div class="sound-card__top">
+            <div><span class="mono-label">TRACK_004 / AURA LAB</span><h2 data-i18n-html="sound.title">Hear the <em>difference.</em></h2></div>
+            <div class="sound-card__status"><span class="status-dot"></span> <span class="status-text" data-i18n="sound.loading">LOADING FILES…</span></div>
+          </div>
+          <div class="visualizer visualizer--particle">
+            <canvas id="visualizer-canvas"></canvas>
+            <div class="visualizer__center">
+              <button class="visualizer__play" type="button" aria-label="Play / pause"><span>▶</span><small class="visualizer__time">00:00 / 00:00</small></button>
+            </div>
+            <div class="visualizer__axis"><span>-∞</span><span>LOW</span><span>MID</span><span>HIGH</span><span>0 dB FS</span></div>
+            <span class="visualizer__readout visualizer__readout--left">WAVE / PARTICLE FIELD<br><b>ANALYZING TRANSIENTS</b></span>
+            <span class="visualizer__readout visualizer__readout--right">FFT 2048 / 60 FPS<br><b>STEREO IMAGE</b></span>
+          </div>
+          <div class="sound-card__controls">
+            <div class="toggle-wrap">
+              <span class="toggle-wrap__label">A/B PROCESS</span>
+              <button class="mix-toggle" data-mode="master" type="button"><span data-i18n="sound.master">4aury4 MASTER</span><strong>AURA MODE <i></i></strong></button>
+              <button class="mix-toggle is-active" data-mode="raw" type="button"><span data-i18n="sound.raw">Not mixed</span><strong>RAW SIGNAL <i></i></strong></button>
+            </div>
+            <div class="sound-stats">
+              <div class="telemetry telemetry--loudness"><span data-i18n="sound.loudness">LOUDNESS</span><strong class="lufs">-14.0 <small>LUFS</small></strong><em>→ <b>-7.0</b> <small>LUFS</small></em><i class="stat-bar"><b style="width:48%"></b></i></div>
+              <div class="telemetry telemetry--clarity"><span data-i18n="sound.clarity">CLARITY</span><strong class="clarity">42<small>%</small></strong><em>→ <b>94</b><small>%</small></em><i class="telemetry-leds"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i></div>
+              <div class="telemetry telemetry--width"><span data-i18n="sound.width">STEREO WIDTH</span><strong class="width">76<small>%</small></strong><em>→ <b>138</b><small>%</small></em><i class="width-arc"><b></b></i></div>
+            </div>
+          </div>
+          <div class="sound-card__footer"><span data-i18n-html="sound.rawFooter">RAW MIX <b>—14 LUFS</b></span><span class="sound-card__divider"></span><span class="is-highlight" data-i18n-html="sound.masterFooter">MASTERED <b>—7 LUFS</b></span><span class="mono-label" data-i18n="sound.turnItUp">TURN IT UP</span></div>
+          <audio id="audio-raw" data-mode="raw" src="mix/not mixed and mastered.wav" preload="metadata"></audio>
+          <audio id="audio-master" data-mode="master" src="mix/mixed and mastered.wav" preload="metadata"></audio>
+        </div>
+      </section>
+
+      <section id="services" class="services section">
+        <div class="section-heading">
+          <div class="section-index" data-i18n="sections.packages">03 / PACKAGES</div>
+          <div class="section-heading__aside" data-i18n-html="services.noGeneric">NO GENERIC SOUND <span class="accent">✳</span></div>
+        </div>
+        <div class="services__intro">
+          <h2 class="section-title split-text" data-i18n-html="services.title">Shape your <em>signal.</em></h2>
+          <p data-i18n="services.intro">From a clean vocal to a full-stems sound. Choose the workflow that fits your track.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card tilt-card">
+            <div class="card-glow"></div><div class="service-card__number">01</div><div class="service-card__tag" data-i18n="services.vocal.tag">FOR VOCALISTS</div>
+            <h3 data-i18n-html="services.vocal.title">Vocal Mix<br><em>2-Track</em></h3>
+            <p data-i18n="services.vocal.description">Your voice forward, centered and exactly where it belongs.</p>
+            <ul><li data-i18n="services.vocal.item1">Vocal tuning & cleanup</li><li data-i18n="services.vocal.item2">Analog saturation</li><li data-i18n="services.vocal.item3">Spatial depth</li></ul>
+            <div class="service-card__bottom"><strong data-i18n="services.vocal.price">from 1 500 CZK</strong><a href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer" data-i18n-html="common.book">BOOK <span>↗</span></a></div>
+          </article>
+          <article class="service-card service-card--featured tilt-card">
+            <div class="card-glow"></div><div class="service-card__number">02</div><div class="service-card__tag" data-i18n="services.full.tag">MOST POPULAR</div>
+            <h3 data-i18n-html="services.full.title">Full Stems<br><em>Mix & Master</em></h3>
+            <p data-i18n="services.full.description">Complete sonic alchemy. Every stem gets its moment.</p>
+            <ul><li data-i18n="services.full.item1">Detailed mix of every stem</li><li data-i18n="services.full.item2">Punch & clarity processing</li><li data-i18n="services.full.item3">Spotify / Apple Music ready</li></ul>
+            <div class="service-card__bottom"><strong data-i18n="services.full.price">from 3 500 CZK</strong><a href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer" data-i18n-html="common.book">BOOK <span>↗</span></a></div>
+          </article>
+          <article class="service-card tilt-card">
+            <div class="card-glow"></div><div class="service-card__number">03</div><div class="service-card__tag" data-i18n="services.master.tag">FOR FINALS</div>
+            <h3 data-i18n-html="services.master.title">Mastering<br><em>Only</em></h3>
+            <p data-i18n="services.master.description">The final layer that turns your finished mix into a release.</p>
+            <ul><li data-i18n="services.master.item1">Analog glue & color</li><li data-i18n="services.master.item2">—14 / —9 LUFS delivery</li><li data-i18n="services.master.item3">High-resolution export</li></ul>
+            <div class="service-card__bottom"><strong data-i18n="services.master.price">from 900 CZK</strong><a href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer" data-i18n-html="common.book">BOOK <span>↗</span></a></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="process section">
+        <div class="section-index" data-i18n="sections.workflow">04 / WORKFLOW</div>
+        <div class="process__heading"><h2 class="section-title split-text" data-i18n-html="process.title">Simple process.<br><em>Serious results.</em></h2><span class="process__stamp">✳<br>SONIC<br>ALCHEMY<br>EST. 2020</span></div>
+        <div class="steps">
+          <div class="step"><span class="step__num">01</span><div><span class="mono-label" data-i18n="process.step1.label">DROP YOUR TRACK</span><h3 data-i18n-html="process.step1.title">Send stems<br>via <em>DM.</em></h3><p data-i18n-html="process.step1.body">Find us at <a href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer">@4aury4</a>. Tell us what your music needs.</p></div><span class="step__arrow">↗</span></div>
+          <div class="step"><span class="step__num">02</span><div><span class="mono-label" data-i18n="process.step2.label">WE GET TO WORK</span><h3 data-i18n-html="process.step2.title">Sonic alchemy<br>in the <em>studio.</em></h3><p data-i18n="process.step2.body">Hear your first rough mix within 48 hours. Communication without bottlenecks.</p></div><span class="step__arrow">↗</span></div>
+          <div class="step"><span class="step__num">03</span><div><span class="mono-label" data-i18n="process.step3.label">MAKE IT YOURS</span><h3 data-i18n-html="process.step3.title">Final revisions<br>&amp; <em>export.</em></h3><p data-i18n="process.step3.body">We dial in the final details and send you a release-ready master.</p></div><span class="step__arrow">↗</span></div>
+        </div>
+      </section>
+
+      <section class="cta-section section">
+        <div class="cta-section__halo"></div><span class="cta-section__label" data-i18n="cta.label">READY TO UPGRADE YOUR SOUND?</span>
+        <a href="https://www.instagram.com/4aury4/" class="cta-section__link magnetic" target="_blank" rel="noreferrer"><span>DM @4aury4</span><i>↗</i></a>
+        <div class="cta-section__footer"><span data-i18n="cta.footer1">NOISE IN / AURA OUT</span><span data-i18n="cta.footer2">LET'S MAKE IT HIT.</span></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a href="#top" class="wordmark">4aury4<span class="accent">.</span></a><span>© 2024 4aury4 studio</span><a href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer">@4aury4 ↗</a></footer>
+  </div>
+  <section class="piano-dock" aria-label="4aury4 studio keyboard">
+    <button class="piano-dock__trigger" type="button" aria-expanded="false" aria-controls="studio-piano">
+      <span class="piano-dock__trigger-icon">♬</span><i></i><b>[ VYSUNOUT SYNTH ]</b><strong>↑</strong>
+    </button>
+    <div class="piano-dock__panel" id="studio-piano">
+      <div class="piano-dock__head">
+      <span><i class="piano-dock__signal"></i> <span data-i18n="piano.input">STUDIO INPUT / UPPER ROW</span></span>
+      <button class="piano-mute" type="button" aria-pressed="false" aria-label="Ztlumit klaviaturu"><span>♬</span><b>ON</b></button>
+      </div>
+      <div class="piano" role="group" aria-label="FL Studio upper row piano">
+      <div class="piano__white-row">
+        <button class="piano-key piano-key--white" data-code="KeyQ" type="button"><strong>Q</strong><small>C5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyW" type="button"><strong>W</strong><small>D5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyE" type="button"><strong>E</strong><small>E5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyR" type="button"><strong>R</strong><small>F5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyT" type="button"><strong>T</strong><small>G5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyY" type="button"><strong>Y</strong><small>A5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyU" type="button"><strong>U</strong><small>B5</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyI" type="button"><strong>I</strong><small>C6</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyO" type="button"><strong>O</strong><small>D6</small></button>
+        <button class="piano-key piano-key--white" data-code="KeyP" type="button"><strong>P</strong><small>E6</small></button>
+      </div>
+      <div class="piano__black-row">
+        <button class="piano-key piano-key--black" data-code="Digit2" type="button"><strong>2</strong><small>C#5</small></button>
+        <button class="piano-key piano-key--black" data-code="Digit3" type="button"><strong>3</strong><small>D#5</small></button>
+        <button class="piano-key piano-key--black" data-code="Digit5" type="button"><strong>5</strong><small>F#5</small></button>
+        <button class="piano-key piano-key--black" data-code="Digit6" type="button"><strong>6</strong><small>G#5</small></button>
+        <button class="piano-key piano-key--black" data-code="Digit7" type="button"><strong>7</strong><small>A#5</small></button>
+        <button class="piano-key piano-key--black" data-code="Digit9" type="button"><strong>9</strong><small>C#6</small></button>
+        <button class="piano-key piano-key--black" data-code="Digit0" type="button"><strong>0</strong><small>D#6</small></button>
+      </div>
+      </div>
+      <div class="piano-dock__foot"><span data-i18n="piano.compatible">QWERTY / QWERTZ COMPATIBLE</span><span data-i18n-html="piano.hold">HOLD TO PLAY <b>●</b></span></div>
+    </div>
+  </section>
+  <div class="note-hud" aria-live="polite">[ NOTE: — | — Hz ]</div>
+  <button class="dm-badge magnetic" type="button" onclick="window.open('https://www.instagram.com/4aury4/', '_blank', 'noopener,noreferrer')"><span class="dm-badge__dot"></span> BOOK VIA IG DM <b>↗</b></button>
+  <div class="overdrive-knob" title="AURA GAIN"><span></span><i>GAIN</i></div>
+  <div class="overdrive-toast"><span data-i18n="overdrive.title">4AURY4 OVERDRIVE</span><strong>AURA10</strong><p data-i18n="overdrive.body">Write this code in your DM for 10% off your first mix.</p><button type="button" data-i18n="common.close">CLOSE ×</button></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
