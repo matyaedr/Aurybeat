@@ -26,6 +26,7 @@
       <a href="#top" class="wordmark magnetic js-logo" aria-label="4aury4 domů">4aury4<span class="accent">.</span></a>
       <nav class="nav">
         <a href="#sound" data-i18n="nav.sound">Soundcheck</a>
+        <a href="#vocal-lab" data-i18n="nav.vocalLab">Vocal Lab</a>
         <a href="#services" data-i18n="nav.services">Services</a>
         <a href="#process" data-i18n="nav.process">Process</a>
       </nav>
@@ -87,7 +88,8 @@
           <div class="visualizer visualizer--particle">
             <canvas id="visualizer-canvas"></canvas>
             <div class="visualizer__center">
-              <button class="visualizer__play" type="button" aria-label="Play / pause"><span>▶</span><small class="visualizer__time">00:00 / 00:00</small></button>
+              <button class="visualizer__play" type="button" aria-label="Play / pause" aria-pressed="false"><span>▶</span></button>
+              <small class="visualizer__time">00:00 / 00:00</small>
             </div>
             <div class="visualizer__axis"><span>-∞</span><span>LOW</span><span>MID</span><span>HIGH</span><span>0 dB FS</span></div>
             <span class="visualizer__readout visualizer__readout--left">WAVE / PARTICLE FIELD<br><b>ANALYZING TRANSIENTS</b></span>
@@ -108,6 +110,81 @@
           <div class="sound-card__footer"><span data-i18n-html="sound.rawFooter">RAW MIX <b>—14 LUFS</b></span><span class="sound-card__divider"></span><span class="is-highlight" data-i18n-html="sound.masterFooter">MASTERED <b>—7 LUFS</b></span><span class="mono-label" data-i18n="sound.turnItUp">TURN IT UP</span></div>
           <audio id="audio-raw" data-mode="raw" src="mix/not mixed and mastered.wav" preload="metadata"></audio>
           <audio id="audio-master" data-mode="master" src="mix/mixed and mastered.wav" preload="metadata"></audio>
+        </div>
+      </section>
+
+      <section id="vocal-lab" class="vocal-lab section">
+        <div class="section-heading">
+          <div class="section-index" data-i18n="sections.vocalLab">03 / VOCAL LAB</div>
+          <div class="section-heading__aside" data-i18n-html="vocalLab.heading">FREE WEB MIXER <span class="pulse-dot"></span></div>
+        </div>
+        <div class="vocal-lab__intro">
+          <div>
+            <span class="mono-label" data-i18n="vocalLab.eyebrow">4AURY4 VOCAL LAB / LOCAL DSP</span>
+            <h2 class="section-title" data-i18n-html="vocalLab.title">Test your vocals.<br><em>Feel the aura.</em></h2>
+          </div>
+          <p data-i18n="vocalLab.intro">Drop a raw vocal or record one in your browser. Four studio effects, zero uploads.</p>
+        </div>
+        <div class="vocal-rack">
+          <div class="vocal-rack__topline">
+            <span data-i18n="vocalLab.rackTitle">VOCAL FX RACK / CHANNEL 01</span>
+            <span class="vocal-rack__status"><i></i><b data-i18n="vocalLab.ready">READY — LOCAL PROCESSING</b></span>
+          </div>
+          <div class="vocal-inputs">
+            <label class="vocal-dropzone" for="vocal-file-input">
+              <input id="vocal-file-input" type="file" accept=".wav,.mp3,audio/wav,audio/mpeg,audio/*">
+              <span class="vocal-dropzone__icon">↥</span>
+              <strong data-i18n="vocalLab.dropTitle">DROP YOUR RAW VOCAL</strong>
+              <small data-i18n="vocalLab.dropMeta">.WAV / .MP3 — FILE STAYS IN YOUR BROWSER</small>
+              <em data-i18n="vocalLab.browse">OR CLICK TO BROWSE</em>
+            </label>
+            <div class="vocal-demo-panel">
+              <span class="mono-label" data-i18n="vocalLab.demoTitle">DEMO INPUT</span>
+              <button id="vocal-demo-button" class="vocal-demo-button" type="button"><span data-i18n="vocalLab.loadDemo">▶ LOAD DEMO VOCAL</span><i>↗</i></button>
+              <small id="vocal-status" data-i18n="vocalLab.demoHint">LOAD THE 4AURY4 DEMO TO START PLAYING</small>
+            </div>
+          </div>
+          <div class="vocal-transport">
+            <button id="vocal-play-button" class="vocal-transport__play" type="button" aria-label="Play vocal" aria-pressed="false">▶</button>
+            <button id="vocal-loop-button" class="vocal-transport__loop is-active" type="button" aria-pressed="true"><span>↻</span> <b data-i18n="vocalLab.loop">LOOP</b></button>
+            <span id="vocal-file-name" class="vocal-transport__file" data-i18n="vocalLab.noFile">NO VOCAL LOADED</span>
+            <span id="vocal-time" class="vocal-transport__time">00:00 / 00:00</span>
+          </div>
+          <canvas id="vocal-waveform" class="vocal-waveform" aria-label="Live vocal waveform"></canvas>
+          <div class="vocal-rack__toolbar">
+            <span data-i18n="vocalLab.signalChain">SIGNAL CHAIN / DRY → FX → AURA BUS</span>
+            <button id="vocal-master-bypass" class="vocal-bypass" type="button" aria-pressed="false"><i></i><span data-i18n="vocalLab.masterBypass">AURA CHAIN ON</span></button>
+          </div>
+          <div class="vocal-fx-grid">
+            <article class="vocal-fx" data-fx="saturation">
+              <div class="vocal-fx__head"><span>01</span><h3 data-i18n="vocalLab.saturation">SATURATION</h3><b>DRIVE</b></div>
+              <div class="vocal-knob-wrap"><div class="vocal-knob" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-label="Saturation amount"><i></i><b></b></div><strong class="vocal-knob__value">38%</strong></div>
+              <button class="vocal-fx__bypass" type="button" aria-pressed="false"><i></i><span data-i18n="vocalLab.bypass">BYPASS</span></button>
+            </article>
+            <article class="vocal-fx" data-fx="doubler">
+              <div class="vocal-fx__head"><span>02</span><h3 data-i18n="vocalLab.doubler">VOCAL DOUBLER</h3><b>WIDTH</b></div>
+              <div class="vocal-knob-wrap"><div class="vocal-knob" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46" aria-label="Doubler amount"><i></i><b></b></div><strong class="vocal-knob__value">46%</strong></div>
+              <button class="vocal-fx__bypass" type="button" aria-pressed="false"><i></i><span data-i18n="vocalLab.bypass">BYPASS</span></button>
+            </article>
+            <article class="vocal-fx" data-fx="delay">
+              <div class="vocal-fx__head"><span>03</span><h3 data-i18n="vocalLab.delay">STEREO DELAY</h3><b>ECHO</b></div>
+              <div class="vocal-knob-wrap"><div class="vocal-knob" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="24" aria-label="Delay amount"><i></i><b></b></div><strong class="vocal-knob__value">24%</strong></div>
+              <button class="vocal-fx__bypass" type="button" aria-pressed="false"><i></i><span data-i18n="vocalLab.bypass">BYPASS</span></button>
+            </article>
+            <article class="vocal-fx" data-fx="reverb">
+              <div class="vocal-fx__head"><span>04</span><h3 data-i18n="vocalLab.reverb">AURA REVERB</h3><b>SPACE</b></div>
+              <div class="vocal-knob-wrap"><div class="vocal-knob" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="34" aria-label="Reverb amount"><i></i><b></b></div><strong class="vocal-knob__value">34%</strong></div>
+              <button class="vocal-fx__bypass" type="button" aria-pressed="false"><i></i><span data-i18n="vocalLab.bypass">BYPASS</span></button>
+            </article>
+          </div>
+          <div class="vocal-rack__bottom">
+            <span class="vocal-lab__privacy" data-i18n="vocalLab.privacy">LOCAL ONLY / YOUR AUDIO NEVER LEAVES THIS DEVICE</span>
+            <button id="vocal-export-button" class="button vocal-export" type="button"><span data-i18n="vocalLab.export">↓ EXPORT PROCESSED WAV</span><i>↗</i></button>
+          </div>
+          <div class="vocal-lab__hook">
+            <p data-i18n="vocalLab.hook">Sounds good? This browser rack is just 10% of a real studio mix. Send your stems to @4aury4 for full vocal tuning, precision EQ, and industry-standard mastering.</p>
+            <a class="button button--primary" href="https://www.instagram.com/4aury4/" target="_blank" rel="noreferrer"><span data-i18n="vocalLab.hookCta">SEND STEMS VIA IG DM</span><i>↗</i></a>
+          </div>
         </div>
       </section>
 
